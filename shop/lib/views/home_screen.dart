@@ -51,18 +51,23 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: StaggeredGridView.countBuilder(
-              crossAxisCount: 2,
-              itemCount: productController.productList.length,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              itemBuilder: (context, index) {
-                return ProductTile(
-                    product: productController.productList[index]);
-              },
-              staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-            ),
-          )
+            child: Obx(() {
+              if (productController.isLoading.value)
+                return Center(child: CircularProgressIndicator());
+              else
+                return StaggeredGridView.countBuilder(
+                  crossAxisCount: 2,
+                  itemCount: productController.productList.length,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  itemBuilder: (context, index) {
+                    return ProductTile(
+                        product: productController.productList[index]);
+                  },
+                  staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+                );
+            }),
+          ),
         ],
       ),
     );
