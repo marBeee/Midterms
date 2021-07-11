@@ -4,7 +4,7 @@ import 'package:shopx/services/remote_services.dart';
 
 class ProductController extends GetxController {
   var isLoading = true.obs;
-  var productList = List<Product>().obs;
+  var productList = <Product>[].obs;
 
   @override
   void onInit() {
