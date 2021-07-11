@@ -4,6 +4,7 @@ import 'package:shopx/models/product.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
+  ProductTile({this.product});
 
   @override
   Widget build(BuildContext context) {
