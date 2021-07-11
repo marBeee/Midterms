@@ -11,6 +11,7 @@ class ProductController extends GetxController {
   var productList = <Product>[].obs;
 
 
+
   @override
   void onInit() {
     fetchProducts();
@@ -19,6 +20,7 @@ class ProductController extends GetxController {
 
   void fetchProducts() async {
     try {
+
       isLoading(true);
       var products = await RemoteServices.fetchProducts();
       if (products != null) {
@@ -27,5 +29,6 @@ class ProductController extends GetxController {
     } finally {
       isLoading(false);
     }
+
   }
 }

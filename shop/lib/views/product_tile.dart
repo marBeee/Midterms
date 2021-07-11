@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopx/controllers/product_controller.dart';
 import 'package:shopx/models/product.dart';
 
 class ProductTile extends StatelessWidget {
@@ -37,14 +38,14 @@ class ProductTile extends StatelessWidget {
 
                   child: Obx(() => CircleAvatar(
                     backgroundColor: Colors.white,
-                    child: IconButton(
-                      icon: product.isFavorite.value
-                          ? Icon(Icons.favorite_rounded)
-                          : Icon(Icons.favorite_border),
-                      onPressed: () {
-                        product.isFavorite.toggle();
-                      },
-                    ),
+                    child: Obx(() => IconButton(
+                          icon: product.isFavorite.value
+                              ? Icon(Icons.favorite_rounded)
+                              : Icon(Icons.favorite_border),
+                          onPressed: () {
+                            product.isFavorite.toggle();
+                          },
+                        )),
                   ),
                 ),
                 ),
