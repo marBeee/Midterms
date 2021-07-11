@@ -1,6 +1,12 @@
-import 'package:http/http.dart' as http;
+
+import 'dart:convert';
+
 import 'package:shopx/models/product.dart';
+
+import 'package:http/http.dart' as http;
+
 import 'package:get/get.dart';
+
 
 class RemoteServices {
   static var client = http.Client();
@@ -13,7 +19,9 @@ class RemoteServices {
       return productFromJson(jsonString);
     } else {
       //show error message
+
       Get.snackbar('ERROR', 'Error fetching products');
+
 
       return null;
     }
