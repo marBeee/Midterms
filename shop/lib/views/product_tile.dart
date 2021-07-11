@@ -32,7 +32,7 @@ class ProductTile extends StatelessWidget {
                 ),
                 Positioned(
                   right: 0,
-                  child: CircleAvatar(
+                  child: Obx(() => CircleAvatar(
                     backgroundColor: Colors.white,
                     child: IconButton(
                       icon: product.isFavorite.value
@@ -43,7 +43,8 @@ class ProductTile extends StatelessWidget {
                       },
                     ),
                   ),
-                )
+                ),
+                ),
               ],
             ),
             SizedBox(height: 8),
