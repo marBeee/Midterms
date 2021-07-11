@@ -7,13 +7,13 @@ class RemoteServices {
 
   static Future<List<Product>> fetchProducts() async {
     var response = await client.get(Uri.parse(
-        'https://makeup-api.herokuapp.com/api/v1/productsdas.json?brand=maybelline'));
+        'https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'));
     if (response.statusCode == 200) {
       var jsonString = response.body;
       return productFromJson(jsonString);
     } else {
       //show error message
-      Get.snackbar('ERROR', 'Error fetching products list');
+      Get.snackbar('ERROR', 'Error fetching products');
 
       return null;
     }
