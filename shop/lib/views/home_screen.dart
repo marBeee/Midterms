@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
+import 'package:shopx/controllers/product_controller.dart';
 import 'package:shopx/views/product_tile.dart';
 
 class HomeScreen extends StatelessWidget {
+  final ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +57,8 @@ class HomeScreen extends StatelessWidget {
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
               itemBuilder: (context, index) {
-                return ProductTile(productController.productList[index]);
+                return ProductTile(
+                    product: productController.productList[index]);
               },
               staggeredTileBuilder: (index) => StaggeredTile.fit(1),
             ),
