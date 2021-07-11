@@ -51,6 +51,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
+
             child: Obx(
               () {
                 if (productController.isLoading.value)
@@ -69,6 +70,7 @@ class HomeScreen extends StatelessWidget {
                   );
               },
             ),
+
           ),
         ],
       ),
